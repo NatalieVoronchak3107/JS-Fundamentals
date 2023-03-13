@@ -1,4 +1,4 @@
-/*//task 01
+//task 01
 let a = 3;
 let b =  4;
 let c = 5;
@@ -71,7 +71,7 @@ const a = prompt("Enter the length of side 'a'");
 const b = prompt("Enter the length of side 'b'");
 const c = prompt("Enter the length of side 'c'");
 
-// Перевіряємо чи коректні введені дані
+// Перевіряємо чи введені дані коректні
 if (isNaN(a) || isNaN(b) || isNaN(c)) {
   console.log('Incorrect data');
 } else {
@@ -97,11 +97,8 @@ if (isNaN(a) || isNaN(b) || isNaN(c)) {
   }
 } 
 
-*/
-
 //task 06
 //solution 01
-/*
 let time = new Date().getHours();
 
 if (time >= 23 || time < 5) {
