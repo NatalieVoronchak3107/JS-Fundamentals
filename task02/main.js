@@ -1,4 +1,3 @@
-/*
 //task 01
 let a = 3;
 let b =  4;
@@ -66,7 +65,7 @@ for (let i = arr.length - 1; i >= 0; i--) {
 console.log(data); // 5
 console.log(arr); // [4, 2, 1, 6, 3, 2]
 console.log(newArr); // [5]
-*/
+
 //task 05
 const a = prompt("Enter the length of side 'a'");
 const b = prompt("Enter the length of side 'b'");
