@@ -110,8 +110,6 @@ if (time >= 23 || time < 5) {
 } else {
   console.log("Good Evening!");
 }
-*/
-
 
 //solution 02
 let time = new Date().getHours();
