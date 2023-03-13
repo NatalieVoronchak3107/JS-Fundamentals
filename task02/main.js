@@ -1,4 +1,4 @@
-//task 01
+/*//task 01
 let a = 3;
 let b =  4;
 let c = 5;
@@ -95,4 +95,40 @@ if (isNaN(a) || isNaN(b) || isNaN(c)) {
   } else {
     console.log('This is not a right-angled triangle');
   }
+} 
+
+*/
+
+//task 06
+//solution 01
+/*
+let time = new Date().getHours();
+
+if (time >= 23 || time < 5) {
+  console.log("Good Night!");
+} else if (time >= 5 && time < 11) {
+  console.log("Good Morning!");
+} else if (time >= 11 && time < 17) {
+  console.log("Good Afternoon!");
+} else {
+  console.log("Good Evening!");
+}
+*/
+
+
+//solution 02
+let time = new Date().getHours();
+
+switch (true) {
+  case (time >= 23 || time < 5):
+    console.log("Good Night!");
+    break;
+  case (time >= 5 && time < 11):
+    console.log("Good Morning!");
+    break;
+  case (time >= 11 && time < 17):
+    console.log("Good Afternoon!");
+    break;
+  default:
+    console.log("Good Evening!");
 }
