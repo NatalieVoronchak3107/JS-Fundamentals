@@ -1,4 +1,3 @@
-/*
 //task 01
 // на HTML-сторінці додаємо наступний скрипт
 <script>alert('Nataliia');</script>;
@@ -30,9 +29,9 @@ const myObject = {
 console.log(myObject);
 
 //task 05
-const isAdult = confirm('Are you of legal age?');
+const isAdult = confirm("Are you of legal age?");
 
-console.log('Used has answered:', isAdult); 
+console.log("Used has answered:", isAdult);
 
 //task 06
 const firstName = "Nataliia";
@@ -41,22 +40,22 @@ const group = "JS Fundamentals";
 const yearOfBirth = 1989;
 const isMarried = true;
 
-console.log(yearOfBirth); 
-console.log(isMarried); 
-console.log(firstName + " " + lastName + " from " + group); 
+console.log(yearOfBirth);
+console.log(isMarried);
+console.log(firstName + " " + lastName + " from " + group);
 
 const nullVar = null;
-const undefinedVar= undefined;
+const undefinedVar = undefined;
 
-console.log(typeof nullVar); 
-console.log(typeof undefinedVar); 
+console.log(typeof nullVar);
+console.log(typeof undefinedVar);
 
 //task 07
 let login = prompt("Please enter your login:");
 let email = prompt("Please enter your email:");
 let password = prompt("Please enter your password:");
 
-alert("Dear " + login + ", your email is " + email + ", your password is " + password + "."); */
+alert("Dear " + login + ", your email is " + email + ", your password is " + password + ".");
 
 //task 08
 const seconds_In_Hour = 60 * 60;
