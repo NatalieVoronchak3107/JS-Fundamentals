@@ -1,11 +1,11 @@
-/*//task 01
+//task 01
 // на HTML-сторінці додаємо наступний скрипт
 <script>
         alert('Nataliia');
       </script>
 
 //task 02
-console.log('Voronchak');*/
+console.log('Voronchak');
 
 //task 03
 const myFavoriteSport = "tennis";
