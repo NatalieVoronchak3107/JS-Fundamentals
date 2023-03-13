@@ -39,3 +39,29 @@ if (isAdult === 'yes') {
 } else {
   console.log("Your answer is unvalid");
 }
+
+//task 04
+let arr = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5];
+
+let counts = {};
+let maxCount = 0;
+let mostCommon;
+for (let i = 0; i < arr.length; i++) {
+  let num = arr[i];
+  counts[num] = (counts[num] || 0) + 1;
+  if (counts[num] > maxCount) {
+    maxCount = counts[num];
+    mostCommon = num;
+  }
+}
+
+let data = mostCommon;
+let newArr = [mostCommon];
+for (let i = arr.length - 1; i >= 0; i--) {
+  if (arr[i] === mostCommon) {
+    arr.splice(i, 1);
+  }
+}
+console.log(data); // 5
+console.log(arr); // [4, 2, 1, 6, 3, 2]
+console.log(newArr); // [5]
