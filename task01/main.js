@@ -1,4 +1,4 @@
-/task 01
+//task 01
 // на HTML-сторінці додаємо наступний скрипт
 <script>
         alert('Nataliia');
