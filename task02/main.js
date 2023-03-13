@@ -28,3 +28,14 @@ console.log(typeof res3); // ""boolean""
 let res4 = (x - y) * "result";
 console.log(res4); // NaN
 console.log(typeof res4); // "number"
+
+//task 03
+let isAdult = prompt("Are you of legal age? (please enter 'yes' or 'no')");
+
+if (isAdult === 'yes') {
+  console.log("You have reached your legal age");
+} else if (isAdult === 'no') {
+  console.log("You are a minor");
+} else {
+  console.log("Your answer is unvalid");
+}
