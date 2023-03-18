@@ -4,6 +4,21 @@ const arr = [5, 3, 4, 5,6,7,3];
 const arr2 = compact(arr);
 console.log(arr2) ; // [5,3,4,6,7]*/
 
+const arr = [5, 3, 4, 5,6,7,3];
+const newArr = compact(arr);
+
+function compact(arr) {
+    const newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (newArr.indexOf(arr[i]) === -1) {
+        newArr.push(arr[i]);
+      }
+    }
+    return newArr;
+  }
+
+  console.log(newArr);
+
 /* 2. Написати функцію createArray(start, end), яка приймає на вхід 2 параметри:
  - початкове значення
  - кінцеве значення
