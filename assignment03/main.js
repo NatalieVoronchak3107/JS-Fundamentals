@@ -16,7 +16,6 @@ function compact(arr) {
     }
     return newArr;
   }
-
   console.log(newArr);
 
 /* 2. Написати функцію createArray(start, end), яка приймає на вхід 2 параметри:
