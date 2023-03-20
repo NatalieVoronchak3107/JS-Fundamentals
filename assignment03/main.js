@@ -4,19 +4,19 @@ const arr = [5, 3, 4, 5,6,7,3];
 const arr2 = compact(arr);
 console.log(arr2) ; // [5,3,4,6,7]*/
 
-const arr = [5, 3, 4, 5,6,7,3];
-const newArr = compact(arr);
+const arr = [5, 3, 4, 5, 6, 7, 3];
 
 function compact(arr) {
-    const newArr = [];
-    for (let i = 0; i < arr.length; i++) {
-      if (newArr.indexOf(arr[i]) === -1) {
-        newArr.push(arr[i]);
-      }
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (newArr.indexOf(arr[i]) === -1) {
+      newArr.push(arr[i]);
     }
-    return newArr;
   }
-  console.log(newArr);
+  return newArr;
+}
+const newArr = compact(arr);
+console.log(newArr);
 
 /* 2. Написати функцію createArray(start, end), яка приймає на вхід 2 параметри:
  - початкове значення
@@ -24,6 +24,18 @@ function compact(arr) {
 а на виході отримує масив із діапазоном цих значень (реалізувати достатньо лише із числовими значеннями)
 let arr = createArray(2, 9);
 console.log(arr); // [2,3,4,5,6,7,8,9] */
+
+let arr = createArray(2, 9);
+
+function createArray(start, end) {
+  let newArr = [];
+  for (let i = start; i <= end; i++) {
+    newArr.push(i);
+  }
+  return newArr;
+}
+
+console.log(arr);
 
 /* 3. Задані цілі числа a і b (a < b). Виведіть усі цілі числа від a до b включно, при цьому a виводится 1 раз, число а+1 - два рази і т.д. */
 
