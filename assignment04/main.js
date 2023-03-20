@@ -3,7 +3,6 @@
 і коли одне з чисел або обидва більшого розміру за довжину масиву. Напишіть код, який використовує цю функцію, передбачте обробку можливих винятків. */
 
 function sumSliceArray(arr, first, second) {
-
   if (typeof first !== "number" || typeof second !== "number") {
     throw new Error('First and second arguments must be numbers.');
   }
@@ -44,8 +43,7 @@ try {
 в полі вік введено нечислове значення. У всіх інших випадках користувач отримає доступ до перегляду фільму. У блоці catch передбачена можливість виведення 
 назви та опису помилки. */
 
-/*function checkAge() {
-
+function checkAge() {
     try {
       const name = prompt('Please enter your name: ', '');
       if (!name) {
@@ -72,14 +70,13 @@ try {
     }
   }
 
-  checkAge(); */
+  checkAge(); 
 
 /* 3. Реалізуйте функцію calcRectangleArea(width, height), яка приймає 2 параметри ширина прямокутника width і висота прямокутника height і обраховує його площу. 
 Передбачити припинення виконання програми і генерацію винятку у випадку, якщо функції передано не числові параметри.
 Напишіть код, який використовує цю функцію та обробляє можливі виняткові ситуації. */
 
 function calcRectangleArea(width, height) {
-
     try {
       const area = width * height;
       if (typeof width !== 'number' || typeof height !== 'number') {
@@ -90,6 +87,7 @@ function calcRectangleArea(width, height) {
       console.log(`${error.name}: ${error.message}`);
     }
   }
+
   console.log(calcRectangleArea(2, "5"));
 
 /* 4. Створіть клас MonthException, конструктор якого приймає параметр message і ініціалізує поле name значенням MonthException.
@@ -111,6 +109,7 @@ class MonthException {
   }
   
   function showMonthName(month) {
+
     const months = [
       'January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December'
@@ -137,3 +136,24 @@ class MonthException {
 showUsers([7, -12, 44, 22]);
 Error: ID must not be negative: -12
 [ {id: 7}, {id: 44}, {id: 22} ] */
+
+function showUser(id) {
+    if (id < 0) {
+      throw new Error("ID must not be negative: " + id);
+    }
+    return { id: id };
+  }
+  
+  function showUsers(ids) {
+    const result = [];
+    for (let i = 0; i < ids.length; i++) {
+      try {
+        result.push(showUser(ids[i]));
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    return result;
+  }
+
+  console.log(showUsers([7, -12, 44, 22]));
