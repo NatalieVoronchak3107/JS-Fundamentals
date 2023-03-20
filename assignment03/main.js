@@ -16,8 +16,7 @@ function compact(array) {
   return newArr;
 }
 
-const newArr = compact(array);
-console.log(newArr);
+console.log(compact(array));
 
 /* 2. Написати функцію createArray(start, end), яка приймає на вхід 2 параметри:
  - початкове значення
@@ -34,15 +33,14 @@ function createArray(start, end) {
   return newArr;
 }
 
-const arr2 = createArray(2, 9);
-console.log(arr2)
+console.log(createArray(2, 9))
 
 /* 3. Задані цілі числа a і b (a < b). Виведіть усі цілі числа від a до b включно, при цьому a виводится 1 раз, число а+1 - два рази і т.д. */
 
 function setNumbersinRange(a, b) {
   for (let i = a; i <= b; i++) {
     for (let j = a; j <= i; j++) {
-      console.log(i);
+        console.log(i);
     }
   }
 }
@@ -60,7 +58,7 @@ function randArray(k) {
     return randNumber;
 }
 
-randArray(5);
+console.log(randArray(5));
 
 /* 5. Є масив [5, “Limit”, 12, “a”, “3”, 99, 2, [2, 4, 3, “33”, “a”, “text”], “strong”, “broun”]
 Написати функцію яка виведе нові масиви які складаються із даних початкового масиву, але одного типу даних (не приводити тип стрінг в число навіть якщо там лише число)
@@ -93,8 +91,7 @@ function splitArrayByType (arr) {
     return [arrNumbers, arrStrings];
 };
 
-const arrNew = splitArrayByType(arr);
-console.log(arrNew);
+console.log(splitArrayByType(arr));
 
 /* 6. Напишіть функцію calc(a, b, op), яка виконує над числами a і b одну із арифметичних операцій та повертає її результат. Вид операції визначається цілим числом op: 1 – віднімання, 2 – добуток, 3 – ділення, інші значення – додавання. */
 
@@ -105,15 +102,10 @@ function calc(a, b, op) {
     if (op === 4) return a + b;
 }
 
-const answer1 = calc(6, 4, 1);
-const answer2 = calc(3, 4, 2);
-const answer3 = calc(12, 4, 3);
-const answer4 = calc(3, 4, 4);
-
-console.log(answer1);
-console.log(answer2);
-console.log(answer3);
-console.log(answer4);
+console.log(calc(6, 4, 1));
+console.log(calc(3, 4, 2));
+console.log(calc(12, 4, 3));
+console.log(calc(3, 4, 4));
 
 /* 7. Напишіть функцію findUnique(arr), яка приймає масив arr і перевіряє на унікальність його елементи. Якщо всі елементи масиву унікальні (не мають дублів), то функція поверне true, інакше - false.
 findUnique([1, 2, 3, 5, 3]);  // => false
