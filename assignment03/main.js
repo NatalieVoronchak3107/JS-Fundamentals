@@ -15,6 +15,7 @@ function compact(array) {
   }
   return newArr;
 }
+
 const newArr = compact(array);
 console.log(newArr);
 
@@ -25,8 +26,6 @@ console.log(newArr);
 let arr = createArray(2, 9);
 console.log(arr); // [2,3,4,5,6,7,8,9] */
 
-const arr2 = createArray(2, 9);
-
 function createArray(start, end) {
   let newArr = [];
   for (let i = start; i <= end; i++) {
@@ -35,6 +34,7 @@ function createArray(start, end) {
   return newArr;
 }
 
+const arr2 = createArray(2, 9);
 console.log(arr2)
 
 /* 3. Задані цілі числа a і b (a < b). Виведіть усі цілі числа від a до b включно, при цьому a виводится 1 раз, число а+1 - два рази і т.д. */
@@ -60,8 +60,7 @@ function randArray(k) {
     return randNumber;
 }
 
-const result= randArray(5);
-console.log(result);
+randArray(5);
 
 /* 5. Є масив [5, “Limit”, 12, “a”, “3”, 99, 2, [2, 4, 3, “33”, “a”, “text”], “strong”, “broun”]
 Написати функцію яка виведе нові масиви які складаються із даних початкового масиву, але одного типу даних (не приводити тип стрінг в число навіть якщо там лише число)
