@@ -74,6 +74,29 @@ let arrNew = funcName(arr);
 ] 
 */
 
+const arr = [5, "Limit", 12, "a", "3", 99, 2, [2, 4, 3, "33", "a", "text"], "strong", "broun"];
+
+function splitArrayByType (arr) {
+    const arrNumbers = [];
+    const arrStrings = [];
+
+    arr.forEach((el) => {
+        if (Array.isArray(el)) {
+            const [numbers, strings] = splitArrayByType(el);
+            arrNumbers.push(...numbers);
+            arrStrings.push(...strings);
+        } else if (typeof el === 'number') {
+            arrNumbers.push(el);
+        } else {
+            arrStrings.push(el);
+        }
+    });
+    return [arrNumbers, arrStrings];
+};
+
+const arrNew = splitArrayByType(arr);
+console.log(arrNew);
+
 /* 6. Напишіть функцію calc(a, b, op), яка виконує над числами a і b одну із арифметичних операцій та повертає її результат. Вид операції визначається цілим числом op: 1 – віднімання, 2 – добуток, 3 – ділення, інші значення – додавання. */
 
 /* 7. Напишіть функцію findUnique(arr), яка приймає масив arr і перевіряє на унікальність його елементи. Якщо всі елементи масиву унікальні (не мають дублів), то функція поверне true, інакше - false.
