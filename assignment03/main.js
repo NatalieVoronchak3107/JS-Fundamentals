@@ -40,17 +40,28 @@ console.log(arr)
 /* 3. Задані цілі числа a і b (a < b). Виведіть усі цілі числа від a до b включно, при цьому a виводится 1 раз, число а+1 - два рази і т.д. */
 
 function setNumbersinRange(a, b) {
-    for (let i = a; i <= b; i++) {
-      for (let j = a; j <= i; j++) {
-        console.log(i);
-      }
+  for (let i = a; i <= b; i++) {
+    for (let j = a; j <= i; j++) {
+      console.log(i);
     }
   }
+}
 
-  setNumbersinRange(3, 6);
+setNumbersinRange(3, 6);
 
 /* 4. Напишіть функцію randArray(k), яка заповнюватиме масив k випадковими цілими числами. Випадкові числа генеруються із діапазону 1-500. 
 randArray(5);  // [399,310,232,379,40] */
+
+function randArray(k) {
+    const randNumber = [];
+    for (let i = 0; i < k; i++) {
+      randNumber.push(Math.floor(Math.random() * 500) + 1);
+    }
+    return randNumber;
+}
+
+const result= randArray(5);
+console.log(result);
 
 /* 5. Є масив [5, “Limit”, 12, “a”, “3”, 99, 2, [2, 4, 3, “33”, “a”, “text”], “strong”, “broun”]
 Написати функцію яка виведе нові масиви які складаються із даних початкового масиву, але одного типу даних (не приводити тип стрінг в число навіть якщо там лише число)
