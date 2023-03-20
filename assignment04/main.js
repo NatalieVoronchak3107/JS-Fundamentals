@@ -93,13 +93,10 @@ function calcRectangleArea(width, height) {
 /* 4. Створіть клас MonthException, конструктор якого приймає параметр message і ініціалізує поле name значенням MonthException.
 Реалізуйте функцію showMonthName(month), в якій параметр month – це порядковий номер місяця в році. Функція повертає назву місяця 
 відповідно до введеного номера місяця. У випадку некоректного вводу кидається ексепшн у вигляді об’єкта класу MonthException з повідомленням 
-Incorrect month number.
-Напишіть код, який використовує цю функцію, передбачте обробку можливих винятків.
+Incorrect month number. Напишіть код, який використовує цю функцію, передбачте обробку можливих винятків.
 Приклад роботи програми:
-console.log(showMonthName(5));
-May
-console.log(showMonthName(14));
-MonthException Incorrect month number */
+console.log(showMonthName(5)); May
+console.log(showMonthName(14)); MonthException Incorrect month number */
 
 class MonthException {
     constructor(message) {
@@ -109,7 +106,6 @@ class MonthException {
   }
   
   function showMonthName(month) {
-
     const months = [
       'January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December'
@@ -129,8 +125,10 @@ class MonthException {
     console.log(error.name, error.message);
   }
  
-/* 5. Реалізуйте функцію showUser(id), яка приймає параметром користувацьке id і повертає об’єкт, який містить значення переданої id. Також функція викидає помилку у разі якщо введено від’ємне id.
-Реалізуйте функцію showUsers(ids), яка приймає параметром масив користувацьких айді ids, перевіряє з використанням функції showUser() кожен елемент масиву ids на коректність, в разі виключної ситуації виводить повідомлення про помилку. Функція showUsers(ids) повертає масив об’єктів, де значеннями ключів є коректні елементи ids. 
+/* 5. Реалізуйте функцію showUser(id), яка приймає параметром користувацьке id і повертає об’єкт, який містить значення переданої id. Також функція викидає 
+помилку у разі якщо введено від’ємне id.Реалізуйте функцію showUsers(ids), яка приймає параметром масив користувацьких айді ids, перевіряє з використанням 
+функції showUser() кожен елемент масиву ids на коректність, в разі виключної ситуації виводить повідомлення про помилку. Функція showUsers(ids) повертає 
+масив об’єктів, де значеннями ключів є коректні елементи ids. 
 
 Приклад роботи програми:
 showUsers([7, -12, 44, 22]);
