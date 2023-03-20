@@ -4,18 +4,18 @@ const arr = [5, 3, 4, 5,6,7,3];
 const arr2 = compact(arr);
 console.log(arr2) ; // [5,3,4,6,7]*/
 
-/*const arr = [5, 3, 4, 5, 6, 7, 3];
+const array = [5, 3, 4, 5, 6, 7, 3];
 
-function compact(arr) {
+function compact(array) {
   const newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (newArr.indexOf(arr[i]) === -1) {
-      newArr.push(arr[i]);
+  for (let i = 0; i < array.length; i++) {
+    if (newArr.indexOf(array[i]) === -1) {
+      newArr.push(array[i]);
     }
   }
   return newArr;
 }
-const newArr = compact(arr);
+const newArr = compact(array);
 console.log(newArr);
 
 /* 2. Написати функцію createArray(start, end), яка приймає на вхід 2 параметри:
@@ -25,7 +25,7 @@ console.log(newArr);
 let arr = createArray(2, 9);
 console.log(arr); // [2,3,4,5,6,7,8,9] */
 
-/*let arr = createArray(2, 9);
+const arr2 = createArray(2, 9);
 
 function createArray(start, end) {
   let newArr = [];
@@ -35,7 +35,7 @@ function createArray(start, end) {
   return newArr;
 }
 
-console.log(arr)
+console.log(arr2)
 
 /* 3. Задані цілі числа a і b (a < b). Виведіть усі цілі числа від a до b включно, при цьому a виводится 1 раз, число а+1 - два рази і т.д. */
 
