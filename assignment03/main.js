@@ -99,6 +99,23 @@ console.log(arrNew);
 
 /* 6. Напишіть функцію calc(a, b, op), яка виконує над числами a і b одну із арифметичних операцій та повертає її результат. Вид операції визначається цілим числом op: 1 – віднімання, 2 – добуток, 3 – ділення, інші значення – додавання. */
 
+function calc(a, b, op) {
+    if (op === 1) return a - b;
+    if (op === 2) return a * b;
+    if (op === 3) return a / b;
+    if (op === 4) return a + b;
+}
+
+const answer1 = calc(6, 4, 1);
+const answer2 = calc(3, 4, 2);
+const answer3 = calc(12, 4, 3);
+const answer4 = calc(3, 4, 4);
+
+console.log(answer1);
+console.log(answer2);
+console.log(answer3);
+console.log(answer4);
+
 /* 7. Напишіть функцію findUnique(arr), яка приймає масив arr і перевіряє на унікальність його елементи. Якщо всі елементи масиву унікальні (не мають дублів), то функція поверне true, інакше - false.
 findUnique([1, 2, 3, 5, 3]);  // => false
 findUnique([1, 2, 3, 5, 11]); // => true */
