@@ -17,21 +17,21 @@ function sumSliceArray(arr, first, second) {
 const arr = [1, 2, 3, 4, 5];
 
 try {
-  const result = sumSliceArray(arr, 2, 4);
+  const result = sumSliceArray(arr, 1, 3);
   console.log(result); 
 } catch (e) {
   console.error(e);
 }
 
 try {
-  const result = sumSliceArray(arr, 2, "4");
+  const result = sumSliceArray(arr, 3, "5");
   console.log(result); 
 } catch (e) {
   console.error(e); 
 }
 
 try {
-  const result = sumSliceArray(arr, 2, 10);
+  const result = sumSliceArray(arr, 3, 33);
   console.log(result); 
 } catch (e) {
   console.error(e); 
