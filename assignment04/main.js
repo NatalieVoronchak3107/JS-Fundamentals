@@ -2,7 +2,7 @@
 які необхідно скласти. Наприклад, якщо ввели 3 та 5 – сумуються 3-й та 5-й елементи.Функція повинна генерувати винятки, якщо були введені не числа, 
 і коли одне з чисел або обидва більшого розміру за довжину масиву. Напишіть код, який використовує цю функцію, передбачте обробку можливих винятків. */
 
-function sumSliceArray(arr, first, second) {
+/*function sumSliceArray(arr, first, second) {
   if (typeof first !== "number" || typeof second !== "number") {
     throw new Error('First and second arguments must be numbers.');
   }
@@ -37,7 +37,40 @@ try {
   console.error(e); 
 }
 
-/* 2. Створіть функцію checkAge(), яка запитує у користувача його ім'я, вік та статус (адмін, модератор, користувач) та генерує модальне вікно з помилкою, якщо:вік користувача менше 18 або більше 70 років (генерується помилка типу RangeError).користувач не ввів жодних даних в будь-якому полі (виводиться повідомлення The field is empty! Please enter your age з типом помилки Error). У полі статус введено неправильне слово (тип помилки EvalError).в полі вік введено нечислове значення. У всіх інших випадках користувач отримає доступ до перегляду фільму. У блоці catch передбачена можливість виведення назви та опису помилки. */
+/* 2. Створіть функцію checkAge(), яка запитує у користувача його ім'я, вік та статус (адмін, модератор, користувач) та генерує модальне вікно з помилкою, 
+якщо:вік користувача менше 18 або більше 70 років (генерується помилка типу RangeError).користувач не ввів жодних даних в будь-якому полі (виводиться 
+повідомлення The field is empty! Please enter your age з типом помилки Error). У полі статус введено неправильне слово (тип помилки EvalError).
+в полі вік введено нечислове значення. У всіх інших випадках користувач отримає доступ до перегляду фільму. У блоці catch передбачена можливість виведення 
+назви та опису помилки. */
+
+function checkAge() {
+    try {
+      const name = prompt('Please enter your name: ', '');
+      if (!name) {
+        throw Error('The field is empty! Please enter your name!');
+      }
+      const age = prompt('How old are you?', '');
+      if (age < 18 || age > 70) {
+        throw RangeError('Age must be between 18 and 70.');
+      }
+      if (!age) {
+        throw Error('The field is empty! Please enter your age!');
+      }
+      const status = prompt('What is your status (admin / moderator / user): ', '');
+      if (status !== 'admin' && status !== 'moderator' && status !== 'user') {
+        throw EvalError('Invalid status input!');
+      }
+      if (!status) {
+        throw Error('The field is empty! Please enter your status!');
+      }
+      alert('You can watch the movie!')
+    } catch(error) {
+      alert(`${error.name}: ${error.message}`);
+      console.error(`${error.name}: ${error.message}`)
+    }
+  }
+  
+  checkAge();
 
 /* 3. Реалізуйте функцію calcRectangleArea(width, height), яка приймає 2 параметри ширина прямокутника width і висота прямокутника height і обраховує його площу. Передбачити припинення виконання програми і генерацію винятку у випадку, якщо функції передано не числові параметри.
 Напишіть код, який використовує цю функцію та обробляє можливі виняткові ситуації. */
