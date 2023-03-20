@@ -4,7 +4,7 @@ const arr = [5, 3, 4, 5,6,7,3];
 const arr2 = compact(arr);
 console.log(arr2) ; // [5,3,4,6,7]*/
 
-const arr = [5, 3, 4, 5, 6, 7, 3];
+/*const arr = [5, 3, 4, 5, 6, 7, 3];
 
 function compact(arr) {
   const newArr = [];
@@ -25,7 +25,7 @@ console.log(newArr);
 let arr = createArray(2, 9);
 console.log(arr); // [2,3,4,5,6,7,8,9] */
 
-let arr = createArray(2, 9);
+/*let arr = createArray(2, 9);
 
 function createArray(start, end) {
   let newArr = [];
@@ -35,9 +35,19 @@ function createArray(start, end) {
   return newArr;
 }
 
-console.log(arr);
+console.log(arr)
 
 /* 3. Задані цілі числа a і b (a < b). Виведіть усі цілі числа від a до b включно, при цьому a виводится 1 раз, число а+1 - два рази і т.д. */
+
+function setNumbersinRange(a, b) {
+    for (let i = a; i <= b; i++) {
+      for (let j = a; j <= i; j++) {
+        console.log(i);
+      }
+    }
+  }
+
+  setNumbersinRange(3, 6);
 
 /* 4. Напишіть функцію randArray(k), яка заповнюватиме масив k випадковими цілими числами. Випадкові числа генеруються із діапазону 1-500. 
 randArray(5);  // [399,310,232,379,40] */
