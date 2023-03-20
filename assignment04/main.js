@@ -1,4 +1,41 @@
-/* 1. Напишіть функцію sumSliceArray(arr, first, second), яка приймає масив arr і два числа (first и second) – порядкові номери елементів масиву, які необхідно скласти. Наприклад, якщо ввели 3 та 5 – сумуються 3-й та 5-й елементи.Функція повинна генерувати винятки, якщо були введені не числа, і коли одне з чисел або обидва більшого розміруза довжину масиву. Напишіть код, який використовує цю функцію, передбачте обробку можливих винятків. */
+/* 1. Напишіть функцію sumSliceArray(arr, first, second), яка приймає масив arr і два числа (first и second) – порядкові номери елементів масиву, 
+які необхідно скласти. Наприклад, якщо ввели 3 та 5 – сумуються 3-й та 5-й елементи.Функція повинна генерувати винятки, якщо були введені не числа, 
+і коли одне з чисел або обидва більшого розміру за довжину масиву. Напишіть код, який використовує цю функцію, передбачте обробку можливих винятків. */
+
+function sumSliceArray(arr, first, second) {
+  if (typeof first !== "number" || typeof second !== "number") {
+    throw new Error('First and second arguments must be numbers.');
+  }
+  if (first < 0 || second < 0 || first >= arr.length || second >= arr.length) {
+    throw new Error(
+      'One of the arguments or both must be less than the length of an array'
+    );
+  }
+  return arr[first] + arr[second];
+}
+
+const arr = [1, 2, 3, 4, 5];
+
+try {
+  const result = sumSliceArray(arr, 2, 4);
+  console.log(result); 
+} catch (e) {
+  console.error(e);
+}
+
+try {
+  const result = sumSliceArray(arr, 2, "4");
+  console.log(result); 
+} catch (e) {
+  console.error(e); 
+}
+
+try {
+  const result = sumSliceArray(arr, 2, 10);
+  console.log(result); 
+} catch (e) {
+  console.error(e); 
+}
 
 /* 2. Створіть функцію checkAge(), яка запитує у користувача його ім'я, вік та статус (адмін, модератор, користувач) та генерує модальне вікно з помилкою, якщо:вік користувача менше 18 або більше 70 років (генерується помилка типу RangeError).користувач не ввів жодних даних в будь-якому полі (виводиться повідомлення The field is empty! Please enter your age з типом помилки Error). У полі статус введено неправильне слово (тип помилки EvalError).в полі вік введено нечислове значення. У всіх інших випадках користувач отримає доступ до перегляду фільму. У блоці catch передбачена можливість виведення назви та опису помилки. */
 
