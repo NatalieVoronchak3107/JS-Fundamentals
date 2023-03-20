@@ -2,7 +2,8 @@
 які необхідно скласти. Наприклад, якщо ввели 3 та 5 – сумуються 3-й та 5-й елементи.Функція повинна генерувати винятки, якщо були введені не числа, 
 і коли одне з чисел або обидва більшого розміру за довжину масиву. Напишіть код, який використовує цю функцію, передбачте обробку можливих винятків. */
 
-/*function sumSliceArray(arr, first, second) {
+function sumSliceArray(arr, first, second) {
+
   if (typeof first !== "number" || typeof second !== "number") {
     throw new Error('First and second arguments must be numbers.');
   }
@@ -19,22 +20,22 @@ const arr = [1, 2, 3, 4, 5];
 try {
   const result = sumSliceArray(arr, 1, 3);
   console.log(result); 
-} catch (e) {
-  console.error(e);
+} catch (error) {
+  console.error(error);
 }
 
 try {
   const result = sumSliceArray(arr, 3, "5");
   console.log(result); 
-} catch (e) {
-  console.error(e); 
+} catch (error) {
+  console.error(error); 
 }
 
 try {
   const result = sumSliceArray(arr, 3, 33);
   console.log(result); 
-} catch (e) {
-  console.error(e); 
+} catch (error) {
+  console.error(error); 
 }
 
 /* 2. Створіть функцію checkAge(), яка запитує у користувача його ім'я, вік та статус (адмін, модератор, користувач) та генерує модальне вікно з помилкою, 
@@ -43,7 +44,8 @@ try {
 в полі вік введено нечислове значення. У всіх інших випадках користувач отримає доступ до перегляду фільму. У блоці catch передбачена можливість виведення 
 назви та опису помилки. */
 
-function checkAge() {
+/*function checkAge() {
+
     try {
       const name = prompt('Please enter your name: ', '');
       if (!name) {
@@ -69,8 +71,8 @@ function checkAge() {
       console.error(`${error.name}: ${error.message}`)
     }
   }
-  
-  checkAge();
+
+  checkAge(); */
 
 /* 3. Реалізуйте функцію calcRectangleArea(width, height), яка приймає 2 параметри ширина прямокутника width і висота прямокутника height і обраховує його площу. Передбачити припинення виконання програми і генерацію винятку у випадку, якщо функції передано не числові параметри.
 Напишіть код, який використовує цю функцію та обробляє можливі виняткові ситуації. */
