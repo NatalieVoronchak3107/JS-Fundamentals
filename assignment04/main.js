@@ -103,6 +103,33 @@ May
 console.log(showMonthName(14));
 MonthException Incorrect month number */
 
+class MonthException {
+    constructor(message) {
+      this.name = 'MonthException';
+      this.message = message;
+    }
+  }
+  
+  function showMonthName(month) {
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+  
+    if (month < 1 || month > 12) {
+      throw new MonthException('Incorrect month number');
+    }
+  
+    return months[month - 1];
+  }
+  
+  try {
+    console.log(showMonthName(5)); 
+    console.log(showMonthName(14));
+  } catch (error) {
+    console.log(error.name, error.message);
+  }
+ 
 /* 5. Реалізуйте функцію showUser(id), яка приймає параметром користувацьке id і повертає об’єкт, який містить значення переданої id. Також функція викидає помилку у разі якщо введено від’ємне id.
 Реалізуйте функцію showUsers(ids), яка приймає параметром масив користувацьких айді ids, перевіряє з використанням функції showUser() кожен елемент масиву ids на коректність, в разі виключної ситуації виводить повідомлення про помилку. Функція showUsers(ids) повертає масив об’єктів, де значеннями ключів є коректні елементи ids. 
 
