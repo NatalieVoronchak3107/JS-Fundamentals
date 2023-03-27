@@ -45,6 +45,21 @@ function openModal() {
 
 Напишіть скріпт, який за допомогою засобів DOM простилізує сторінку так як показано на картинці. */
 
+const elements = {
+  header: document.querySelector('h1'),
+  paragraphs: document.querySelectorAll('p'),
+  myList: document.querySelector('#myList'),
+  span: document.querySelector('span')
+};
+
+elements.header.style.backgroundColor = '#90EE90'; 
+elements.paragraphs[0].style.fontWeight = 'bold';
+elements.paragraphs[1].style.color = 'red';
+elements.paragraphs[2].style.textDecoration = 'underline';
+elements.paragraphs[3].style.fontStyle = 'italic';
+elements.myList.style.cssText = 'display: flex; list-style: none;';
+elements.span.style.display = 'none';
+
 /* 3. Напишіть скріпт, який за допомогою засобів DOM створить для порожньої HTML-сторінки таку структуру з тегів і їх атрибутів.
 <body>
   main class="mainClass check item">         
