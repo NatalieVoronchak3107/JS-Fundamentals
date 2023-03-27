@@ -7,6 +7,41 @@
 - Визначте метод перевірки попадання крапки до кола;
 - Визначте метод перетворення поточного стану об'єкта на символьний рядок (toString()). */
 
+class Circle {
+    constructor(x, y, radius) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+    }
+  getLength() {
+    return 2 * Math.PI * this.radius;
+  }
+  static getLengthByRadius(radius) {
+    return 2 * Math.PI * radius;
+  }
+  getCopy() {
+    return new Circle(this.x, this.y, this.radius);
+  }
+  static getCircleByParameters(x, y, radius) {
+    return new Circle(x, y, radius);
+  }
+  isDotInside(x, y) {
+    return (x - this.x) ** 2 + (y - this.y) ** 2 <= this.radius ** 2;
+  }
+  toString() {
+    return `Circle[x=${this.x}, y=${this.y}, radius=${this.radius}]`;
+  }
+}
+
+const circle = new Circle(2, 3, 7);
+
+console.log(circle.getLength()); 
+console.log(Circle.getLengthByRadius(7)); 
+console.log(circle.getCopy()); 
+console.log(Circle.getCircleByParameters(2, 3, 7)); 
+console.log(circle.isDotInside(2, 3)); 
+console.log(circle.toString()); 
+
 /* 2. Напишіть функцію propsCount(currentObject), яка приймає об’єкт і визначає кількість властивостей цього об’єкта.
 Наприклад:
  let mentor = { 
@@ -27,7 +62,6 @@ propsCount(mentor);  // 3 */
 const stud1 = new Student("Petro", "Petrenko", 2019);
 console.log(stud1.showFullName("Petrovych")); // Petrenko Petro Petrovych
 console.log("Current course: " + stud1.showCourse()); //Current course: 4 */
-
 
 /* 4. 
 А. Реалізувати клас, який описує простий маркер. У класі мають бути такі компоненти:
