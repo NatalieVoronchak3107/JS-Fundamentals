@@ -164,7 +164,6 @@ marker1.print("JS Fundamentals");
 
 console.log(`Ink level after printing: ${marker1.inkAmount}%`);
 
-
 const marker2 = new RefilledMarker("red", 30, 50);
 
 console.log(`Color: ${marker2.color}`);
@@ -177,7 +176,6 @@ console.log(`Ink level after printing: ${marker2.inkAmount}%`);
 marker2.refill();
 
 console.log(`Ink level after refill: ${marker2.inkAmount}%`);
-
 
 /* 5. Створіть клас Worker який буде мати конструктор, який приймає наступні властивості: fullName (ім’я і прізвище), dayRate (ставка за день роботи), 
 workingDays (кількість відпрацьованих днів). 
@@ -232,3 +230,80 @@ Sorted salary:
 John Johnson: 690
 Andy Ander: 1000.5
 Tom Tomson: 1584 */
+
+class Worker {
+  constructor(fullName, dayRate, workingDays) {
+    this.fullName = fullName;
+    this.dayRate = dayRate;
+    this.workingDays = workingDays;
+    this._experience = 1.2;
+  }
+
+  showSalary() {
+    const salary = this.dayRate * this.workingDays;
+    console.log(`${this.fullName} salary: ${salary}`);
+    return salary;
+  }
+
+  showSalaryWithExperience() {
+    const salary = this.dayRate * this.workingDays * this._experience;
+    console.log(`${this.fullName} salary: ${salary}`);
+    return salary;
+  }
+
+  get experience() {
+    return this._experience;
+  }
+
+  set experience(value) {
+    this._experience = value;
+  }
+
+  static sortBySalary(workers) {
+    const salariesWithExperience = workers.map((worker) => {
+      const salary = worker.dayRate * worker.workingDays * worker.experience;
+      return { fullName: worker.fullName, salary };
+    });
+
+    const sortedSalaries = salariesWithExperience.sort(
+      (a, b) => a.salary - b.salary
+    );
+
+    console.log("Sorted salary:");
+    sortedSalaries.forEach((item) => {
+      const { fullName, salary } = item;
+      console.log(`${fullName}: ${salary}`);
+    });
+
+    return sortedSalaries.map((item) => item.worker);
+  }
+}
+const worker1 = new Worker("John Johnson", 20, 23);
+console.log(worker1.fullName);
+worker1.showSalary();
+console.log(`New experience: ${worker1.experience}`);
+worker1.showSalaryWithExperience();
+worker1.experience = 1.5;
+console.log(`New experience: ${worker1.experience}`);
+worker1.showSalaryWithExperience();
+
+const worker2 = new Worker("Tom Tomson", 48, 22);
+console.log(worker2.fullName);
+worker2.showSalary();
+console.log(`New experience: ${worker2.experience}`);
+worker2.showSalaryWithExperience();
+worker2.experience = 1.5;
+console.log(`New experience: ${worker2.experience}`);
+worker2.showSalaryWithExperience();
+
+const worker3 = new Worker("Andy Ander", 29, 23);
+console.log(worker3.fullName);
+worker3.showSalary();
+console.log(`New experience: ${worker3.experience}`);
+worker3.showSalaryWithExperience();
+worker3.experience = 1.5;
+console.log(`New experience: ${worker2.experience}`);
+worker3.showSalaryWithExperience();
+
+const workers = [worker1, worker2, worker3];
+Worker.sortBySalary(workers);
