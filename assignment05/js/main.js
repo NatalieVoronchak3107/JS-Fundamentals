@@ -123,6 +123,62 @@ console.log("Current course: ", stud1.showCourse());
 В. Реалізувати клас, що описує маркер, що заправляється, успадкувавши його від простого маркера і додавши метод для заправки маркера. 
 Продемонструвати роботу написаних методів */
 
+class Marker {
+  constructor(color, inkAmount) {
+    this.color = color;
+    this.inkAmount = inkAmount;
+  }
+
+  print(text) {
+    let printedText = "";
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] !== " " && this.inkAmount > 0) {
+        printedText += text[i];
+        this.inkAmount -= 0.5;
+      } else if (text[i] === " ") {
+        printedText += " ";
+      }
+    }
+    console.log("%c" + printedText, `color: ${this.color}`);
+  }
+}
+
+class RefilledMarker extends Marker {
+  constructor(color, inkAmount, refillAmount) {
+    super(color, inkAmount);
+    this.refillAmount = refillAmount;
+  }
+
+  refill() {
+    this.inkAmount += this.refillAmount;
+    console.log(`Marker refilled. Current ink level: ${this.inkAmount}%`);
+  }
+}
+
+const marker1 = new Marker("green", 50);
+
+console.log(`Color: ${marker1.color}`);
+console.log(`Ink level: ${marker1.inkAmount}%`);
+
+marker1.print("JS Fundamentals");
+
+console.log(`Ink level after printing: ${marker1.inkAmount}%`);
+
+
+const marker2 = new RefilledMarker("red", 30, 50);
+
+console.log(`Color: ${marker2.color}`);
+console.log(`Ink level: ${marker2.inkAmount}%`);
+
+marker2.print("Learning JS is fun");
+
+console.log(`Ink level after printing: ${marker2.inkAmount}%`);
+
+marker2.refill();
+
+console.log(`Ink level after refill: ${marker2.inkAmount}%`);
+
+
 /* 5. Створіть клас Worker який буде мати конструктор, який приймає наступні властивості: fullName (ім’я і прізвище), dayRate (ставка за день роботи), 
 workingDays (кількість відпрацьованих днів). 
     1) клас повинен мати метод showSalary(), який буде виводити зарплату працівника. Зарплата - це добуток ставки dayRate на кількість відпрацьованих днів 
