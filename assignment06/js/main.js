@@ -12,6 +12,19 @@
 •        5
 Результат виводу: 1, 5, 2, 4, 3 */
 
+function openModal() {
+
+  const list = document.getElementById("list");
+
+  const first = list.children[0].textContent;
+  const last = list.children[list.children.length - 1].textContent;
+  const second = list.children[1].textContent;
+  const fourth = list.children[3].textContent;
+  const third = list.children[2].textContent;
+
+  const modal = window.open("", "modal");
+  modal.document.write(`<p>${first}, ${last}, ${second}, ${fourth}, ${third}</p>`);
+}
 
 /* 2. Для сторінки
 <body>
