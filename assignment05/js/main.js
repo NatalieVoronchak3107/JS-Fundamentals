@@ -8,11 +8,11 @@
 - Визначте метод перетворення поточного стану об'єкта на символьний рядок (toString()). */
 
 class Circle {
-    constructor(x, y, radius) {
-      this.x = x;
-      this.y = y;
-      this.radius = radius;
-    }
+  constructor(x, y, radius) {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+  }
   getLength() {
     return 2 * Math.PI * this.radius;
   }
@@ -35,12 +35,12 @@ class Circle {
 
 const circle = new Circle(2, 3, 7);
 
-console.log(circle.getLength()); 
-console.log(Circle.getLengthByRadius(7)); 
-console.log(circle.getCopy()); 
-console.log(Circle.getCircleByParameters(2, 3, 7)); 
-console.log(circle.isDotInside(2, 3)); 
-console.log(circle.toString()); 
+console.log(circle.getLength());
+console.log(Circle.getLengthByRadius(7));
+console.log(circle.getCopy());
+console.log(Circle.getCircleByParameters(2, 3, 7));
+console.log(circle.isDotInside(2, 3));
+console.log(circle.toString());
 
 /* 2. Напишіть функцію propsCount(currentObject), яка приймає об’єкт і визначає кількість властивостей цього об’єкта.
 Наприклад:
@@ -50,6 +50,24 @@ console.log(circle.toString());
             direction: "web-development" 
         };
 propsCount(mentor);  // 3 */
+
+function propsCount(currentObject) {
+  return Object.keys(currentObject).length;
+}
+
+let book = {
+  title: "Pippi Longstocking",
+  author: "Astrid Lindgren",
+  publishedYear: 1945,
+  genre: "fiction",
+  characters: ["Tommy Settergren", "Pippi Långstrump", "Annika Gannec"],
+  ratings: {
+    goodreads: 4.2,
+    amazon: 4.8,
+  },
+};
+
+console.log(propsCount(book));
 
 /* 3. 
 -  Створіть клас Person, у якого конструктор приймає параметри name і surname, а також міститься метод showFullName(), який виводить у консоль 
