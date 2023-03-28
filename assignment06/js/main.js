@@ -70,7 +70,7 @@ elements.span.style.display = "none";
  </main> 
 </body> */
 
-/*// тут не створювала додатково body
+// тут не створювала додатково body
 const main = document.createElement("main");
 main.setAttribute("class", "mainClass check item");
 const div = document.createElement("div");
@@ -81,7 +81,7 @@ p.textContent = "First paragraph";
 div.appendChild(p);
 main.appendChild(div);
 document.body.appendChild(main);
-*/
+
 /* 4. Задача описана в блоці JS
 https://codepen.io/misha_klymenko/pen/Jjabvez 
 реалізувати вивід даних із полів при кліку на кнопку "Надіслати" в поле outBlock*/
@@ -115,14 +115,10 @@ https://codepen.io/misha_klymenko/pen/abzLvqo */
 const circles = document.querySelectorAll(".circle");
 
 circles.forEach((circle) => {
-  const animValue = circle.getAttribute("data-anim");
-  circle.classList.add(animValue);
-});
-
-circles.forEach((circle) => {
+  const dataAnimValue = circle.getAttribute("data-anim");
+  circle.classList.add(dataAnimValue);
   console.log(circle.classList.contains(circle.getAttribute("data-anim")));
 });
-
 
 /* 6. Задача описана в блоці JS
 https://codepen.io/misha_klymenko/pen/dyjyeGO */
