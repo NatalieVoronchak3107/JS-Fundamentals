@@ -82,8 +82,7 @@ div.appendChild(p);
 main.appendChild(div);
 document.body.appendChild(main);
 
-/* 4. Задача описана в блоці JS
-https://codepen.io/misha_klymenko/pen/Jjabvez 
+/* 4. Задача описана в блоці JS https://codepen.io/misha_klymenko/pen/Jjabvez 
 реалізувати вивід даних із полів при кліку на кнопку "Надіслати" в поле outBlock*/
 
 const button = document.querySelector(".btn");
@@ -99,9 +98,8 @@ button.addEventListener("click", () => {
   outBlock.innerHTML = values.join(", ");
 });
 
-/* 5. Задача описана в блоці JS
-https://codepen.io/misha_klymenko/pen/abzLvqo */
-/*
+/* 5. Задача описана в блоці JS https://codepen.io/misha_klymenko/pen/abzLvqo
+
 1) вибрати всі теги із класом circle
 2) перебрати кожен елемент, і вибрати його data-anim значення
 3) вибране значення додати як клас за допомогою classList до цього елемента.
@@ -120,9 +118,46 @@ circles.forEach((circle) => {
   console.log(circle.classList.contains(circle.getAttribute("data-anim")));
 });
 
-/* 6. Задача описана в блоці JS
-https://codepen.io/misha_klymenko/pen/dyjyeGO */
+/* 6. Задача описана в блоці JS https://codepen.io/misha_klymenko/pen/dyjyeGO 
 
+- Реалізувати логіку підрахунку ціни товару по його варіаціях(шаблон наведений тут, при кліку на колір змінювати ціну товару).
+- Придумати ще 2 варіації, від яких буде залежати ціна товару.*/
+
+const colorBtnContainer = document.querySelector(".colors");
+const sizeBtnContainer = document.querySelector(".sizes");
+const technologiesBtnContainer = document.querySelector(".technologies");
+const price = document.getElementById("outprice");
+
+colorBtnContainer.addEventListener("click", (event)=> changeColor(event));
+sizeBtnContainer.addEventListener("click", (event)=> changeSize(event));
+technologiesBtnContainer.addEventListener("click", (event)=> changeTechnologies(event));
+
+function changeColor(event) {
+  if (event.target.classList.contains("color")) {
+  activeColor.classList.remove("active");
+  event.target.classList.add("active");
+  const newPrice = event.target.getAttribute("data-price");
+  price.innerText = newPrice;
+}
+}
+
+function changeSize(event) {
+  if (event.target.classList.contains("size")) {
+  activeSize.classList.remove("active");
+  event.target.classList.add("active");
+  const newPrice = event.target.getAttribute("data-price");
+  price.innerText = newPrice;
+}
+}
+
+function changeTechnologies(event) {
+  if (event.target.classList.contains("technologies")) {
+  activeTechnologies.classList.remove("active");
+  event.target.classList.add("active");
+  const newPrice = event.target.getAttribute("data-price");
+  price.innerText = newPrice;
+}
+}
 /*⭐⭐⭐
 (Ускладнене. Задача не оцінюється. Для тих, кому хочеться поробити ще щось)
 Зробити електронний годинник у такому стилі. 
