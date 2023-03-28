@@ -69,6 +69,18 @@ elements.span.style.display = 'none';
  </main> 
 </body> */
 
+// тут не створювала додатково body
+const main = document.createElement('main');
+main.setAttribute('class', 'mainClass check item');
+const div = document.createElement('div');
+div.setAttribute('id', 'myDiv');
+const p = document.createElement('p');
+p.textContent = 'First paragraph';
+
+div.appendChild(p);
+main.appendChild(div);
+document.body.appendChild(main);
+
 /* 4. Задача описана в блоці JS
 https://codepen.io/misha_klymenko/pen/Jjabvez */
 
