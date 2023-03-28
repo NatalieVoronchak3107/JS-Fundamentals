@@ -70,7 +70,7 @@ elements.span.style.display = "none";
  </main> 
 </body> */
 
-// тут не створювала додатково body
+/*// тут не створювала додатково body
 const main = document.createElement("main");
 main.setAttribute("class", "mainClass check item");
 const div = document.createElement("div");
@@ -81,7 +81,7 @@ p.textContent = "First paragraph";
 div.appendChild(p);
 main.appendChild(div);
 document.body.appendChild(main);
-
+*/
 /* 4. Задача описана в блоці JS
 https://codepen.io/misha_klymenko/pen/Jjabvez 
 реалізувати вивід даних із полів при кліку на кнопку "Надіслати" в поле outBlock*/
@@ -89,7 +89,7 @@ https://codepen.io/misha_klymenko/pen/Jjabvez
 const button = document.querySelector(".btn");
 const outBlock = document.querySelector(".out");
 
-button.addEventListener("click", function () {
+button.addEventListener("click", () => {
   const fullName = document.querySelector('input[name="fio"]').value;
   const phone = document.querySelector('input[name="phone"]').value;
   const dateOfBirthday = document.querySelector('input[name="birthday"]').value;
@@ -101,6 +101,28 @@ button.addEventListener("click", function () {
 
 /* 5. Задача описана в блоці JS
 https://codepen.io/misha_klymenko/pen/abzLvqo */
+/*
+1) вибрати всі теги із класом circle
+2) перебрати кожен елемент, і вибрати його data-anim значення
+3) вибране значення додати як клас за допомогою classList до цього елемента.
+4) перевірити чи застосувались анімації
+
+- вибірка елемента із DOM дерева
+- вибрати клас елемента (https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+- вибрати із data атрибута значення і занести те значення в клас елемента для якого ми вибрали поточний атрибут
+*/
+
+const circles = document.querySelectorAll(".circle");
+
+circles.forEach((circle) => {
+  const animValue = circle.getAttribute("data-anim");
+  circle.classList.add(animValue);
+});
+
+circles.forEach((circle) => {
+  console.log(circle.classList.contains(circle.getAttribute("data-anim")));
+});
+
 
 /* 6. Задача описана в блоці JS
 https://codepen.io/misha_klymenko/pen/dyjyeGO */
