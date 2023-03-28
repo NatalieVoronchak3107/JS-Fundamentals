@@ -13,7 +13,6 @@
 Результат виводу: 1, 5, 2, 4, 3 */
 
 function openModal() {
-
   const list = document.getElementById("list");
 
   const first = list.children[0].textContent;
@@ -23,7 +22,9 @@ function openModal() {
   const third = list.children[2].textContent;
 
   const modal = window.open("", "modal");
-  modal.document.write(`<p>${first}, ${last}, ${second}, ${fourth}, ${third}</p>`);
+  modal.document.write(
+    `<p>${first}, ${last}, ${second}, ${fourth}, ${third}</p>`
+  );
 }
 
 /* 2. Для сторінки
@@ -46,19 +47,19 @@ function openModal() {
 Напишіть скріпт, який за допомогою засобів DOM простилізує сторінку так як показано на картинці. */
 
 const elements = {
-  header: document.querySelector('h1'),
-  paragraphs: document.querySelectorAll('p'),
-  myList: document.querySelector('#myList'),
-  span: document.querySelector('span')
+  header: document.querySelector("h1"),
+  paragraphs: document.querySelectorAll("p"),
+  myList: document.querySelector("#myList"),
+  span: document.querySelector("span"),
 };
 
-elements.header.style.backgroundColor = '#90EE90'; 
-elements.paragraphs[0].style.fontWeight = 'bold';
-elements.paragraphs[1].style.color = 'red';
-elements.paragraphs[2].style.textDecoration = 'underline';
-elements.paragraphs[3].style.fontStyle = 'italic';
-elements.myList.style.cssText = 'display: flex; list-style: none;';
-elements.span.style.display = 'none';
+elements.header.style.backgroundColor = "#90EE90";
+elements.paragraphs[0].style.fontWeight = "bold";
+elements.paragraphs[1].style.color = "red";
+elements.paragraphs[2].style.textDecoration = "underline";
+elements.paragraphs[3].style.fontStyle = "italic";
+elements.myList.style.cssText = "display: flex; list-style: none;";
+elements.span.style.display = "none";
 
 /* 3. Напишіть скріпт, який за допомогою засобів DOM створить для порожньої HTML-сторінки таку структуру з тегів і їх атрибутів.
 <body>
@@ -70,19 +71,33 @@ elements.span.style.display = 'none';
 </body> */
 
 // тут не створювала додатково body
-const main = document.createElement('main');
-main.setAttribute('class', 'mainClass check item');
-const div = document.createElement('div');
-div.setAttribute('id', 'myDiv');
-const p = document.createElement('p');
-p.textContent = 'First paragraph';
+const main = document.createElement("main");
+main.setAttribute("class", "mainClass check item");
+const div = document.createElement("div");
+div.setAttribute("id", "myDiv");
+const p = document.createElement("p");
+p.textContent = "First paragraph";
 
 div.appendChild(p);
 main.appendChild(div);
 document.body.appendChild(main);
 
 /* 4. Задача описана в блоці JS
-https://codepen.io/misha_klymenko/pen/Jjabvez */
+https://codepen.io/misha_klymenko/pen/Jjabvez 
+реалізувати вивід даних із полів при кліку на кнопку "Надіслати" в поле outBlock*/
+
+const button = document.querySelector(".btn");
+const outBlock = document.querySelector(".out");
+
+button.addEventListener("click", function () {
+  const fullName = document.querySelector('input[name="fio"]').value;
+  const phone = document.querySelector('input[name="phone"]').value;
+  const dateOfBirthday = document.querySelector('input[name="birthday"]').value;
+  const email = document.querySelector('input[name="email"]').value;
+
+  const values = [fullName, phone, dateOfBirthday, email];
+  outBlock.innerHTML = values.join(", ");
+});
 
 /* 5. Задача описана в блоці JS
 https://codepen.io/misha_klymenko/pen/abzLvqo */
