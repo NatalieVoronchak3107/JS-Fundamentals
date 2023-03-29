@@ -123,38 +123,153 @@ circles.forEach((circle) => {
 - Реалізувати логіку підрахунку ціни товару по його варіаціях(шаблон наведений тут, при кліку на колір змінювати ціну товару).
 - Придумати ще 2 варіації, від яких буде залежати ціна товару.*/
 
+// знаходимо всі елементи, на які можна клікнути
+/*const colors = document.querySelectorAll('.color');
+const sizes = document.querySelectorAll('.size');
+const technologies = document.querySelectorAll('.technology');
+
+// знаходимо елемент ціни, щоб оновити його відповідно до вибору користувача
+const price = document.getElementById('outprice');
+
+// функція, яка буде виконуватись при кліку на елемент
+function handleClick() {
+  // видаляємо клас active з усіх елементів, щоб позначити активний елемент
+  this.parentNode.querySelectorAll('.active').forEach(function(el) {
+    el.classList.remove('active');
+  });
+
+  // додаємо клас active до обраного елементу
+  this.classList.add('active');
+
+  // оновлюємо ціну відповідно до вибору користувача
+  const selectedColor = document.querySelector('.color.active');
+  const selectedSize = document.querySelector('.size.active');
+  const selectedTechnology = document.querySelector('.technology.active');
+
+  const colorPrice = parseInt(selectedColor.getAttribute('data-price'));
+  const sizePrice = parseInt(selectedSize.getAttribute('data-price'));
+  const technologyPrice = parseInt(selectedTechnology.getAttribute('data-price'));
+
+  const totalPrice = colorPrice + sizePrice + technologyPrice;
+
+  price.innerText = totalPrice.toFixed(2);
+}
+
+// додаємо обробник події click для кожного елемента
+colors.forEach(function(color) {
+  color.addEventListener('click', handleClick);
+});
+
+sizes.forEach(function(size) {
+  size.addEventListener('click', handleClick);
+});
+
+technologies.forEach(function(technology) {
+  technology.addEventListener('click', handleClick);
+}); 
+*/
+/*// отримуємо необхідні елементи з DOM
+const colors = document.querySelectorAll('.color');
+const sizes = document.querySelectorAll('.size');
+const technologies = document.querySelectorAll('.technology');
+const outprice = document.querySelector('#outprice');
+
+// встановлюємо початкову ціну товару
+let price = 189.99;
+
+// додаємо обробник події при кліку на кожен елемент
+colors.forEach(color => {
+  color.addEventListener('click', () => {
+    // отримуємо ціну вибраного кольору
+    const colorPrice = parseInt(color.getAttribute('data-price'));
+    // оновлюємо ціну товару
+    price = colorPrice;
+    // додаємо клас active до вибраного елементу та видаляємо його з інших
+    colors.forEach(c => c.classList.remove('active'));
+    color.classList.add('active');
+    // оновлюємо відображення ціни товару
+    outprice.innerHTML = price.toFixed(2);
+  });
+});
+
+sizes.forEach(size => {
+  size.addEventListener('click', () => {
+    const sizePrice = parseInt(size.getAttribute('data-price'));
+    price += sizePrice;
+    sizes.forEach(s => s.classList.remove('active'));
+    size.classList.add('active');
+    outprice.innerHTML = price.toFixed(2);
+  });
+});
+
+technologies.forEach(technology => {
+  technology.addEventListener('click', () => {
+    const technologyPrice = parseInt(technology.getAttribute('data-price'));
+    price += technologyPrice;
+    technologies.forEach(t => t.classList.remove('active'));
+    technology.classList.add('active');
+    outprice.innerHTML = price.toFixed(2);
+  });
+}); */
+
+// отримуємо необхідні елементи з DOM
 const colorBtnContainer = document.querySelector(".colors");
 const sizeBtnContainer = document.querySelector(".sizes");
-const technologiesBtnContainer = document.querySelector(".technologies");
+const technologyBtnContainer = document.querySelector(".technologies");
 const price = document.getElementById("outprice");
+let activeColor = document.querySelector(".colors .active");
+let activeSize = document.querySelector(".sizes.active");
+let activeTechnology = document.querySelector(".technologies.active");
 
-colorBtnContainer.addEventListener("click", (event)=> changeColor(event));
-sizeBtnContainer.addEventListener("click", (event)=> changeSize(event));
-technologiesBtnContainer.addEventListener("click", (event)=> changeTechnologies(event));
+colorBtnContainer.addEventListener("click", (event) => {changeColor(event); changeImageColor();});
+sizeBtnContainer.addEventListener("click", (event) => changeSize(event));
+technologyBtnContainer.addEventListener("click", (event) => changeTechnology(event));
 
-function changeColor(event) {
+
+const changeColor = (event) => {
   if (event.target.classList.contains("color")) {
-  activeColor.classList.remove("active");
-  event.target.classList.add("active");
-  const newPrice = event.target.getAttribute("data-price");
-  price.innerText = newPrice;
-}
+    activeColor.classList.remove("active");
+    event.target.classList.add("active");
+    activeColor = event.target;
+    const newPrice = event.target.getAttribute("data-price");
+    price.innerText = newPrice;
+  }
 }
 
-function changeSize(event) {
+const changeImageColor = () => {
+  const images = document.querySelectorAll(".shoe");
+  images.forEach((shoe) => {
+    const colorMatch = shoe.getAttribute("color") === activeColor.getAttribute("color");
+    shoe.classList.toggle("show", colorMatch);
+  });
+}
+
+const changeSize = (event) => {
   if (event.target.classList.contains("size")) {
-  activeSize.classList.remove("active");
-  event.target.classList.add("active");
-  const newPrice = event.target.getAttribute("data-price");
-  price.innerText = newPrice;
+    const activeSizeBtn = document.querySelector(".sizes .active");
+    if (activeSizeBtn) {
+      activeSizeBtn.classList.remove("active");
+    }
+    event.target.classList.add("active");
+    activeSize = event.target.getAttribute("data-price");
+    updatePrice();
+  } 
 }
+const changeTechnology = (event) =>{
+  if (event.target.classList.contains("technology")) {
+    const activeTechnologyBtn = document.querySelector(".technologies .active");
+    if (activeTechnologyBtn) {
+      activeTechnologyBtn.classList.remove("active");
+    }
+    event.target.classList.add("active");
+    activeTechnology = event.target.getAttribute("data-price");
+    updatePrice();
+  } 
 }
 
-function changeTechnologies(event) {
-  if (event.target.classList.contains("technologies")) {
-  activeTechnologies.classList.remove("active");
-  event.target.classList.add("active");
-  const newPrice = event.target.getAttribute("data-price");
-  price.innerText = newPrice;
-}
+const updatePrice = () => {
+  const colorPrice = parseInt(activeColor.getAttribute("data-price"));
+  const sizePrice = activeSize ? parseInt(activeSize) : 0;
+  const techPrice = activeTechnology ? parseInt(activeTechnology) : 0;
+  price.innerText = colorPrice + sizePrice + techPrice;
 }
