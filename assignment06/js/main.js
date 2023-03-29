@@ -158,7 +158,3 @@ function changeTechnologies(event) {
   price.innerText = newPrice;
 }
 }
-/*⭐⭐⭐
-(Ускладнене. Задача не оцінюється. Для тих, кому хочеться поробити ще щось)
-Зробити електронний годинник у такому стилі. 
-https://user-images.githubusercontent.com/9075641/182206079-7c4aa5f0-50d9-4808-bec7-6d3af7bdada9.gif */
