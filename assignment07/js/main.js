@@ -51,32 +51,42 @@ const btn3 = document.getElementById("btn3");
 const link = document.getElementById("link");
 
 btn1.addEventListener("click", () => {
-      document.body.style.backgroundColor = "blue";
-    });
+  document.body.style.backgroundColor = "blue";
+});
 
 btn2.addEventListener("dblclick", () => {
-      document.body.style.backgroundColor = "pink";
-    });
+  document.body.style.backgroundColor = "pink";
+});
 
 btn3.addEventListener("mousedown", () => {
-      document.body.style.backgroundColor = "brown";
-    });
+  document.body.style.backgroundColor = "brown";
+});
 
 btn3.addEventListener("mouseup", () => {
-      document.body.style.backgroundColor = "white";
-    });
+  document.body.style.backgroundColor = "white";
+});
 
 link.addEventListener("mouseenter", () => {
-      document.body.style.backgroundColor = "yellow";
-    });
+  document.body.style.backgroundColor = "yellow";
+});
 
 link.addEventListener("mouseleave", () => {
-      document.body.style.backgroundColor = "white";
-    });
+  document.body.style.backgroundColor = "white";
+});
 
 /* 4. 
 Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент випадаючого списку. Можуть видалятися всі елементи в будь-якому порядку.
 https://user-images.githubusercontent.com/9075641/228462160-e0584c12-eb4a-4973-b598-46e1cde9b941.png */
+
+const deleteBtn = document.getElementById("deleteBtn");
+const selectList = document.getElementById("selectList");
+
+deleteBtn.addEventListener("click", function () {
+  const selectedIndex = selectList.selectedIndex;
+  if (selectedIndex >= 0) {
+    selectList.remove(selectedIndex);
+  }
+});
 
 /* 5. 
 Реалізуйте програму, яка по натисканню на кнопку виводитиме повідомлення 
