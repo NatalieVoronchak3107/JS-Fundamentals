@@ -94,6 +94,20 @@ deleteBtn.addEventListener("click", function () {
 Приклад роботи:
 https://user-images.githubusercontent.com/9075641/228462490-a2ec423a-44e3-40f5-9c0a-7e9d207f2822.png */
 
+const clickMeBtn = document.getElementById("clickMeBtn");
+
+clickMeBtn.addEventListener("click", function() {
+    alert("I was pressed!");
+  });
+
+  clickMeBtn.addEventListener("mouseover", function() {
+    console.log("Mouse on me!");
+  });
+
+  clickMeBtn.addEventListener("mouseout", function() {
+    console.log("Mouse is not on me!");
+  });
+
 /* 6. 
 Реалізуйте програму, яка відслідковуватиме зміну розміру (ширини і висоти) вікна браузера і виводитиме на поточну сторінку при її розтязі/стисканні відповідні значення.
 https://user-images.githubusercontent.com/9075641/228463011-5302f615-86e6-41dc-b09a-62bed3564596.png */
