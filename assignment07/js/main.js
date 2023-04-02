@@ -45,6 +45,35 @@ function changeCSS() {
         Приклад – курсор наведений на лінку.
 https://user-images.githubusercontent.com/9075641/228461056-455d4dbf-527b-43de-a3dd-7c079dfbffed.png */
 
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
+const link = document.getElementById("link");
+
+btn1.addEventListener("click", () => {
+      document.body.style.backgroundColor = "blue";
+    });
+
+btn2.addEventListener("dblclick", () => {
+      document.body.style.backgroundColor = "pink";
+    });
+
+btn3.addEventListener("mousedown", () => {
+      document.body.style.backgroundColor = "brown";
+    });
+
+btn3.addEventListener("mouseup", () => {
+      document.body.style.backgroundColor = "white";
+    });
+
+link.addEventListener("mouseenter", () => {
+      document.body.style.backgroundColor = "yellow";
+    });
+
+link.addEventListener("mouseleave", () => {
+      document.body.style.backgroundColor = "white";
+    });
+
 /* 4. 
 Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент випадаючого списку. Можуть видалятися всі елементи в будь-якому порядку.
 https://user-images.githubusercontent.com/9075641/228462160-e0584c12-eb4a-4973-b598-46e1cde9b941.png */
