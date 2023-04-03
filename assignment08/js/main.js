@@ -47,6 +47,15 @@ console.log(output);
 /* 4. 
 Напишіть функцію, яка виконуватиме валідацію номера банківської карти (9999-9999-9999-9999). */
 
+const validateCCNumber = (cardNumber) => {
+  const regEx = /^([0-9]{4})-([0-9]{4})-([0-9]{4})-([0-9]{4})$/;
+  return regEx.test(cardNumber);
+};
+
+console.log(validateCCNumber('9999-9999-9999-9999')); 
+console.log(validateCCNumber('999-999-999'))
+console.log(validateCCNumber('99-99-99-99'))
+
 /* 5. 
 Напишіть функцію, яка приймає рядкові дані і виконує перевірку на їх відповідність емейлу.
 Вимоги:
