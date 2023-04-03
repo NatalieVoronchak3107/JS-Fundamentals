@@ -123,7 +123,8 @@ resizeWindow();
 window.addEventListener("resize", resizeWindow);
 
 /* 7. 
- На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у другому – назви міст. Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому  списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче вивести назву обраної країни і місто.
+ На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у другому – назви міст. Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому  списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. 
+Також потрібно нижче вивести назву обраної країни і місто.
 Код HTML-сторінки:
 <select name="country" id="country">
         <option value="ger">Germany</option>
@@ -135,3 +136,38 @@ window.addEventListener("resize", resizeWindow);
 <p></p>
         
 https://user-images.githubusercontent.com/9075641/228463508-6225f4ee-7ad2-4130-b7fc-d97a2d236693.png */
+
+const selectCountry = document.getElementById("country");
+const selectCity = document.getElementById("cities");
+const output = document.getElementById("output");
+
+const citiesByCountry = {
+    ger: ["Hamburg", "Dresden", "Berlin"],
+    usa: ["New York", "San Francisco", "Chicago"],
+    ukr: ["Kyiv", "Lviv", "Dnipro"],
+};
+
+function updateCities() {
+    const selectedCountry = selectCountry.value;
+    const cities = citiesByCountry[selectedCountry];
+
+    selectCity.innerHTML = "";
+
+    cities.forEach(city => {
+        const option = document.createElement("option");
+        option.value = city;
+        option.textContent = city;
+        selectCity.appendChild(option);
+    });
+
+    updateOutput();
+}
+
+function updateOutput() {
+    output.textContent = `${selectCountry.options[selectCountry.selectedIndex].text}, ${selectCity.value}`;
+}
+
+selectCountry.addEventListener("change", updateCities);
+selectCity.addEventListener("change", updateOutput);
+
+updateCities();
