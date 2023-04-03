@@ -72,11 +72,8 @@ checkEmail('my_ma--il@gmail.com');
 "Email is not correct!" */
 
 const checkEmail2 = (email2) => {
-  const emailRegEx2 =
-    /^(([a-z0-9_-]+.)[a-z0-9_-]+@[a-z0-9_-]+(.[a-z0-9_-]+).[a-z]{2,6})$/;
-  return emailRegEx2.test(email2)
-    ? "Email is correct!"
-    : "Email is not correct!";
+  const emailRegEx2 = /^(([a-z0-9_-]+.)[a-z0-9_-]+@[a-z0-9_-]+(.[a-z0-9_-]+).[a-z]{2,6})$/;
+  return emailRegEx2.test(email2) ? "Email is correct!" : "Email is not correct!";
 };
 
 console.log(checkEmail2("my_mail@gmail.com"));
