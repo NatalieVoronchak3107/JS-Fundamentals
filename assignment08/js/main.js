@@ -12,7 +12,7 @@ const upperCase = (str) => {
   } else {
     return "String's not starts with uppercase character";
   }
-}
+};
 
 console.log(upperCase("regexp"));
 console.log(upperCase("RegExp"));
@@ -24,20 +24,25 @@ checkEmail("Qmail2@gmail.com");
 true */
 
 const checkEmail = (email) => {
-    const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegEx.test(email);
-  }
+  const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegEx.test(email);
+};
 
 console.log(checkEmail("Qmail2@gmail.com"));
 console.log(checkEmail("Qmail2-gmail.com"));
 console.log(checkEmail(""));
-
 
 /* 3. 
 Напишіть регулярний вираз, який в рядковому тексті 2 підстрічки буде міняти місцями.
 Приклад роботи:
 Вхідний рядок    "Java Script"
 Вихід    “Script, Java” */
+
+const str = "Java Script";
+const regEx = /^(\w+)\s+(\w+)$/; // Вираз для знаходження двох слов у рядку
+const output = str.replace(regEx, "$2, $1"); // Міняємо місцями два слова у рядку
+
+console.log(output);
 
 /* 4. 
 Напишіть функцію, яка виконуватиме валідацію номера банківської карти (9999-9999-9999-9999). */
