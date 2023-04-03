@@ -113,6 +113,15 @@ clickMeBtn.addEventListener("mouseout", () => {
 Реалізуйте програму, яка відслідковуватиме зміну розміру (ширини і висоти) вікна браузера і виводитиме на поточну сторінку при її розтязі/стисканні відповідні значення.
 https://user-images.githubusercontent.com/9075641/228463011-5302f615-86e6-41dc-b09a-62bed3564596.png */
 
+function resizeWindow() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  windowSize.innerText = `Width:${width},\nHeight:${height}`;
+}
+
+resizeWindow();
+window.addEventListener("resize", resizeWindow);
+
 /* 7. 
  На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у другому – назви міст. Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому  списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче вивести назву обраної країни і місто.
 Код HTML-сторінки:
