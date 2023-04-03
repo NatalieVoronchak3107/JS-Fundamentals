@@ -6,7 +6,7 @@ upperCase('regexp');
 upperCase('RegExp');
 "String's starts with uppercase character" */
 
-function upperCase(str) {
+const upperCase = (str) => {
   if (str.charAt(0) === str.charAt(0).toUpperCase()) {
     return "String's starts with uppercase character";
   } else {
@@ -22,6 +22,16 @@ console.log(upperCase("RegExp"));
 Приклад роботи:
 checkEmail("Qmail2@gmail.com");
 true */
+
+const checkEmail = (email) => {
+    const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegEx.test(email);
+  }
+
+console.log(checkEmail("Qmail2@gmail.com"));
+console.log(checkEmail("Qmail2-gmail.com"));
+console.log(checkEmail(""));
+
 
 /* 3. 
 Напишіть регулярний вираз, який в рядковому тексті 2 підстрічки буде міняти місцями.
