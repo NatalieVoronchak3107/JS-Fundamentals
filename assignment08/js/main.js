@@ -39,8 +39,8 @@ console.log(checkEmail1(""));
 Вихід    “Script, Java” */
 
 const str = "Java Script";
-const regEx = /^(\w+)\s+(\w+)$/; // Вираз для знаходження двох слов у рядку
-const output = str.replace(regEx, "$2, $1"); // Міняємо місцями два слова у рядку
+const regEx = /^(\w+)\s+(\w+)$/; 
+const output = str.replace(regEx, "$2, $1"); 
 
 console.log(output);
 
@@ -72,16 +72,20 @@ checkEmail('my_ma--il@gmail.com');
 "Email is not correct!" */
 
 const checkEmail2 = (email2) => {
-  const emailRegEx2 = /^(([a-z0-9_-]+.)[a-z0-9_-]+@[a-z0-9_-]+(.[a-z0-9_-]+).[a-z]{2,6})$/;
-  return emailRegEx2.test(email2) ? "Email is correct!" : "Email is not correct!";
+  const emailRegEx2 =
+    /^(([a-z0-9_-]+.)[a-z0-9_-]+@[a-z0-9_-]+(.[a-z0-9_-]+).[a-z]{2,6})$/;
+  return emailRegEx2.test(email2)
+    ? "Email is correct!"
+    : "Email is not correct!";
 };
 
-console.log(checkEmail2('my_mail@gmail.com'));
-console.log(checkEmail2('#my_mail@gmail.com'));
-console.log(checkEmail2('my_ma--il@gmail.com'));
+console.log(checkEmail2("my_mail@gmail.com"));
+console.log(checkEmail2("#my_mail@gmail.com"));
+console.log(checkEmail2("my_ma--il@gmail.com"));
 
 /* 6. 
-Напишіть функцію, яка перевіряє правильність логіна. Правильний логін - рядок від 2 до 10 символів, що містить лише букви та числа, номер не може бути першим. Функція має приймати рядок і знаходити усі числа в цьому рядку, включаючи числа з плаваючою комою (наприклад, 3.4).
+Напишіть функцію, яка перевіряє правильність логіна. Правильний логін - рядок від 2 до 10 символів, що містить лише букви та числа, номер не може бути першим. 
+Функція має приймати рядок і знаходити усі числа в цьому рядку, включаючи числа з плаваючою комою (наприклад, 3.4).
 Приклад роботи:
 checkLogin('ee1.1ret3');
 true 
@@ -90,3 +94,21 @@ true
 checkLogin('ee1*1ret3');
 false 
 //1, 1, 3 */
+
+const checkLogin = (login) => {
+    const regEx1 = /^[a-zA-Z0-9.]+$/;
+    const regEx2 = /\d+\.\d+|\d+/g;
+
+  if (login.length < 2 || login.length > 10 || !regEx1.test(login) || !isNaN(login[0])) {
+    return false;
+  }
+
+  if (login.match(regEx2)) {
+    return true;
+  }
+}
+
+console.log(checkLogin("ee1.1ret3"));
+console.log(checkLogin("ee1*1ret3"));
+console.log(checkLogin("3e11ret3"));
+console.log(checkLogin("ee1.1ret345678"));
