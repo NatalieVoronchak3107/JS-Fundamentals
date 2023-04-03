@@ -95,9 +95,7 @@ deleteBtn.addEventListener("click", function () {
 https://user-images.githubusercontent.com/9075641/228462490-a2ec423a-44e3-40f5-9c0a-7e9d207f2822.png */
 
 const clickMeBtn = document.getElementById("clickMeBtn");
-const msg1 = document.getElementById("msg1");
-const msg2 = document.getElementById("msg2");
-const msg3 = document.getElementById("msg3");
+const message = document.getElementById("message");
 
 clickMeBtn.addEventListener("click", () => {
   message.innerHTML = "I was pressed!";
