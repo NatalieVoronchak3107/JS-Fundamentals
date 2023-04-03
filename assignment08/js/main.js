@@ -23,14 +23,14 @@ console.log(upperCase("RegExp"));
 checkEmail("Qmail2@gmail.com");
 true */
 
-const checkEmail = (email) => {
-  const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegEx.test(email);
+const checkEmail1 = (email1) => {
+  const emailRegEx1 = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegEx1.test(email1);
 };
 
-console.log(checkEmail("Qmail2@gmail.com"));
-console.log(checkEmail("Qmail2-gmail.com"));
-console.log(checkEmail(""));
+console.log(checkEmail1("Qmail2@gmail.com"));
+console.log(checkEmail1("Qmail2-gmail.com"));
+console.log(checkEmail1(""));
 
 /* 3. 
 Напишіть регулярний вираз, який в рядковому тексті 2 підстрічки буде міняти місцями.
@@ -52,9 +52,9 @@ const validateCCNumber = (cardNumber) => {
   return regEx.test(cardNumber);
 };
 
-console.log(validateCCNumber('9999-9999-9999-9999')); 
-console.log(validateCCNumber('999-999-999'))
-console.log(validateCCNumber('99-99-99-99'))
+console.log(validateCCNumber("9999-9999-9999-9999"));
+console.log(validateCCNumber("999-999-999"));
+console.log(validateCCNumber("99-99-99-99"));
 
 /* 5. 
 Напишіть функцію, яка приймає рядкові дані і виконує перевірку на їх відповідність емейлу.
@@ -70,6 +70,15 @@ checkEmail('#my_mail@gmail.com');
 "Email is not correct!"
 checkEmail('my_ma--il@gmail.com');
 "Email is not correct!" */
+
+const checkEmail2 = (email2) => {
+  const emailRegEx2 = /^(([a-z0-9_-]+.)[a-z0-9_-]+@[a-z0-9_-]+(.[a-z0-9_-]+).[a-z]{2,6})$/;
+  return emailRegEx2.test(email2) ? "Email is correct!" : "Email is not correct!";
+};
+
+console.log(checkEmail2('my_mail@gmail.com'));
+console.log(checkEmail2('#my_mail@gmail.com'));
+console.log(checkEmail2('my_ma--il@gmail.com'));
 
 /* 6. 
 Напишіть функцію, яка перевіряє правильність логіна. Правильний логін - рядок від 2 до 10 символів, що містить лише букви та числа, номер не може бути першим. Функція має приймати рядок і знаходити усі числа в цьому рядку, включаючи числа з плаваючою комою (наприклад, 3.4).
