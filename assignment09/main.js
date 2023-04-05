@@ -7,7 +7,7 @@
 
 $(function () {
   $("h2.head").css("background-color", "green");
-  $("h2.head.inner").css("font-size", "35px");
+  $("h2.head .inner").css("font-size", "35px");
 });
 
 /* 2. На HTML-сторінці є посилання <a>. У випадку коли, href починається на https://, потрібно додати посиланню атрибут target="_blank". */
