@@ -25,7 +25,7 @@ $(function () {
 
 $(function () {
   $("h3 + div").each(function () {
-    $(this).insertBefore($(this).prev("h3"));
+    $(this).insertBefore($(this).prevAll("h3").first());
   });
 });
 
