@@ -25,12 +25,24 @@ console.log(age2); // 24
 console.log(name4); // "Bob"
 console.log(age4); // 26
 
-//3. Напишіть функцію mul(), яка приймає будь-яку кількість параметрів різного типу і повертає добуток параметрів типу Number.
-//Якщо параметри типу Number відсутні, повертає число 0.
-///function mul(/* ваш код */) {
-// Ваш код }
-//console.log(mul(1, "str", 2, 3, true)); // 6
-//console.log(mul(null, "str", false, true)); // 0
+/*3. Напишіть функцію mul(), яка приймає будь-яку кількість параметрів різного типу і повертає добуток параметрів типу Number.
+Якщо параметри типу Number відсутні, повертає число 0.*/
+function mul(...args) {
+   let result = 1;
+   let hasNumber = false;
+
+   for (let arg of args) {
+       if (typeof arg === 'number') {
+           result *= arg;
+           hasNumber = true;
+       }
+   }
+
+   return hasNumber ? result : 0;
+}
+
+console.log(mul(1, "str", 2, 3, true)); // 6
+console.log(mul(null, "str", false, true)); // 0
 
 /*4. Змініть код використовуючи стрілкові функції, щоб в коді не використовувалися методи bind().
 let server = {
