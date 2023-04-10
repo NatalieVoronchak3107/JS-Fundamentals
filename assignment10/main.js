@@ -1,44 +1,36 @@
-/* 1. Напишіть код в Ваш код , щоб він працював
+//1. Напишіть код, щоб він працював
 let names = {
-    first: "Tom",
-    second: "Sam",
-    third: "Ray",
-    fourth: "Bob",
+  first: "Tom",
+  second: "Sam",
+  third: "Ray",
+  fourth: "Bob",
 };
 
-let {} = names;
+let { first: f, third: x, fifth = "Name №5" } = names;
 
 console.log(f); // "Tom"
-
 console.log(x); // "Ray"
+console.log(fifth); // "Name №5"
 
-console.log(fifth); // "Name №5"  */
+//2. Напишіть код, щоб він працював
+let data = {
+    names: ["Sam", "Tom", "Ray", "Bob"],
+    ages: [20, 24, 22, 26],
+};
 
+let {names: [, name2, , name4], ages: [, age2, , age4]} = data;
 
-
-//2. Напишіть код в /* Ваш код */, щоб він працював
-//let data = {
-//    names: ["Sam", "Tom", "Ray", "Bob"],
-//    ages: [20, 24, 22, 26],
-//};
-
-//let /* Ваш код */ = data; 
-
-//console.log(name2); // "Tom"
-//console.log(age2); // 24
-//console.log(name4); // "Bob"
-//console.log(age4); // 26 
-
-
+console.log(name2); // "Tom"
+console.log(age2); // 24
+console.log(name4); // "Bob"
+console.log(age4); // 26
 
 //3. Напишіть функцію mul(), яка приймає будь-яку кількість параметрів різного типу і повертає добуток параметрів типу Number.
 //Якщо параметри типу Number відсутні, повертає число 0.
 ///function mul(/* ваш код */) {
-   // Ваш код }
+// Ваш код }
 //console.log(mul(1, "str", 2, 3, true)); // 6
 //console.log(mul(null, "str", false, true)); // 0
-
-
 
 /*4. Змініть код використовуючи стрілкові функції, щоб в коді не використовувалися методи bind().
 let server = {
@@ -73,7 +65,6 @@ let values = ["div", "span", "b", "i"];
 let map = mapBuilder(keys, values);
 console.log(map.size); // 4
 console.log(map.get(2)); // "span" */
-
 
 /* 6. За допомгою коду у нижче створюється масив, використовуючи цикл, до масиву записуються три функції. Логіка функцій проста, в консоль виводиться значення лічильника на момент створення функції.
 На вигляд код виглядає логічним, але, якщо запустити цей код без змін, в консоль буде виведено двічі число 3.
