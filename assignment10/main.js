@@ -95,13 +95,29 @@ client.calc(123);
 console.log(client.result); // "123"
 console.log(typeof client.result); // "string"
 
-/*5. Напишіть функцію mapBuilder (keysArray, valuesArrays), яка приймає два масиви однакової довжини. Використовуючи ці масиви, функція повинна створювати об'єкт типу Map, ключами якого є значення з першого масиву, а значеннями Map - значення з другого масиву. Після цього функція повертає даний об'єкт Map.
+/*5. Напишіть функцію mapBuilder (keysArray, valuesArrays), яка приймає два масиви однакової довжини. Використовуючи ці масиви, функція повинна створювати об'єкт типу Map, 
+ключами якого є значення з першого масиву, а значеннями Map - значення з другого масиву. Після цього функція повертає даний об'єкт Map.
 Приклади використання функції:
 let keys = [1, 2, 3, 4];
 let values = ["div", "span", "b", "i"];
 let map = mapBuilder(keys, values);
 console.log(map.size); // 4
 console.log(map.get(2)); // "span" */
+
+function mapBuilder(keysArray, valuesArray) {
+   let resultMap = new Map();
+   for (let i = 0; i < keysArray.length; i++) {
+       resultMap.set(keysArray[i], valuesArray[i]);
+   }
+   return resultMap;
+}
+
+let keys = [1, 2, 3, 4];
+let values = ["div", "span", "b", "i"];
+let map = mapBuilder(keys, values);
+
+console.log(map.size); // 4
+console.log(map.get(2)); // "span"
 
 /* 6. За допомгою коду у нижче створюється масив, використовуючи цикл, до масиву записуються три функції. Логіка функцій проста, в консоль виводиться значення лічильника на момент створення функції.
 На вигляд код виглядає логічним, але, якщо запустити цей код без змін, в консоль буде виведено двічі число 3.
