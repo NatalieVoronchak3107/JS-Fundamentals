@@ -64,7 +64,7 @@ new Promise(function (resolve, reject) {
     if (isNaN(number)) {
         reject("Invalid input. Please enter a number.");
     } else {
-        resolve(number);
+        resolve(Number(number));
     }
 }).catch(function (error) {
     return new Promise(function (resolve, reject) {
@@ -73,10 +73,10 @@ new Promise(function (resolve, reject) {
             number = prompt(error);
         } while (isNaN(number));
 
-        resolve(number);
+        resolve(Number(number));
     });
 }).then(function (result) {
-    console.log(result);
+    console.log("Number you have entered: " + result);
 });
 
 /* 4. Заданий цикл for, який виводить послідовність чисел від 0 до 10 з випадковим інтервалом (від 0 до N мілісекунд). Використовуючи проміси потрібно змінити цикл 
