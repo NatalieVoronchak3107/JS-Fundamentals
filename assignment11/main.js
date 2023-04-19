@@ -7,6 +7,18 @@ getPromise("test promise", 2000).then(function(data) {
 
 Результат: через 2 сек в консолі виводиться "test promise" */
 
+function getPromise(message, delay) {
+    return new Promise(function(resolve) {
+        setTimeout(function() {
+            resolve(message);
+        }, delay);
+    });
+}
+
+getPromise("test promise", 2000).then(function(data) {
+    console.log(data);
+});
+
 
 /* 2. Реалізуйте функцію calcArrProduct(arr), яка приймає масив чисел. Функція повинна повернути Promise, робота якого завершується поверненням добутку елементів 
 масиву, якщо вони є типу Numbers, або повідомленням "Error! Incorrect array!" у випадку, якщо хоча б 1 елемент масиву нечисловий.
