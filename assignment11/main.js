@@ -95,3 +95,14 @@ showNumbers();
 Результат: 
 з різним рендомним інтервалом (наприклад від 0 до 3 сек) в консоль послідовно  виводяться числа 0,1,2,3,4,5,6,7,8,9 Задачу потрібно реалізувати без застосування 
 промісів. Переписати функцію showNumbers, використовуючи конструкцію async/await. */
+
+const delay = (i, time) => new Promise(resolve => setTimeout(() => resolve(i), time));
+
+async function showNumbers() {
+  for (let i = 0; i < 10; i++) {
+    await delay(i, Math.floor(Math.random() * 3000));
+    console.log(i);
+  }
+}
+
+showNumbers();
