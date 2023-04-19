@@ -8,17 +8,16 @@ getPromise("test promise", 2000).then(function(data) {
 Результат: через 2 сек в консолі виводиться "test promise" */
 
 function getPromise(message, delay) {
-    return new Promise(function(resolve) {
-        setTimeout(function() {
-            resolve(message);
-        }, delay);
-    });
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve(message);
+    }, delay);
+  });
 }
 
-getPromise("test promise", 2000).then(function(data) {
-    console.log(data);
+getPromise("test promise", 2000).then(function (data) {
+  console.log(data);
 });
-
 
 /* 2. Реалізуйте функцію calcArrProduct(arr), яка приймає масив чисел. Функція повинна повернути Promise, робота якого завершується поверненням добутку елементів 
 масиву, якщо вони є типу Numbers, або повідомленням "Error! Incorrect array!" у випадку, якщо хоча б 1 елемент масиву нечисловий.
@@ -28,25 +27,22 @@ calcArrProduct([5,"user2", 7, 12]).then(result => console.log(result));
 // "Error! Incorrect array!" */
 
 function calcArrProduct(arr) {
-    return new Promise(function (resolve, reject) {
-        let product = 1;
-        for (let i = 0; i < arr.length; i++) {
-            if (typeof arr[i] === 'number') {
-                product *= arr[i];
-            } else {
-                reject('Error! Incorrect array!');
-                return;
-            }
-        }
-        resolve(product);
-    });
+  return new Promise(function (resolve, reject) {
+    let product = 1;
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === "number") {
+        product *= arr[i];
+      } else {
+        reject("Error! Incorrect array!");
+        return;
+      }
+    }
+    resolve(product);
+  });
 }
 
-calcArrProduct([3, 4, 5]).then(result => console.log(result)); 
-calcArrProduct([5, "user2", 7, 12]).catch(result => console.log(result));
-
-
-
+calcArrProduct([3, 4, 5]).then((result) => console.log(result));
+calcArrProduct([5, "user2", 7, 12]).catch((result) => console.log(result));
 
 /* 3. Створіть наступний асинхронний ланцюжок promise:
 new Promise(function (resolve, reject) {
@@ -61,6 +57,27 @@ new Promise(function (resolve, reject) {
 }).then(function (result) {
    // Вивід number у консоль
 }); */
+
+new Promise(function (resolve, reject) {
+    const number = prompt("Please enter a number:");
+
+    if (isNaN(number)) {
+        reject("Invalid input. Please enter a number.");
+    } else {
+        resolve(number);
+    }
+}).catch(function (error) {
+    return new Promise(function (resolve, reject) {
+        let number;
+        do {
+            number = prompt(error);
+        } while (isNaN(number));
+
+        resolve(number);
+    });
+}).then(function (result) {
+    console.log(result);
+});
 
 /* 4. Заданий цикл for, який виводить послідовність чисел від 0 до 10 з випадковим інтервалом (від 0 до N мілісекунд). Використовуючи проміси потрібно змінити цикл 
 так, щоб числа виводилися в строгій послідовності від 0 до 10. Наприклад, якщо виведення нуля займає 4 секунди, а одиниці 2 секунди, то одиниця повинна дочекатися 
