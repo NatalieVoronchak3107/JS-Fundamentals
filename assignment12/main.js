@@ -24,5 +24,25 @@
  server.listen(5000, "localhost", () => {
      console.log("Server is running at http://localhost:5000");
  });
- 
+
+ /* 2.
+Необхідно створити власний модуль personalmodule.js, який містить функцію, що приймає ім’я системного юзера і працює з поточним часом та на основі пори доби виводить повідомлення із привітанням юзера. Щоб експортувати змінні чи функції модуля на зовні можна використати об’єкт module.exports. 
+Створіть Node.js сервер, який з використанням функціоналу розробленого модуля повертатиме наступну сторінку:*/
+
+const http = require('http');
+const os = require('os');
+const greetUser = require('./personalmodule');
+
+const server = http.createServer((req, res) => {
+    const userName = os.userInfo().username;
+    const greetingMessage = greetUser(userName);
+
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write(`<h1>${greetingMessage}</h1>`);
+    res.end();
+});
+
+server.listen(5000, () => {
+    console.log('Server is running at http://localhost:5000');
+});
  
