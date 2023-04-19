@@ -7,7 +7,7 @@
  const os = require("os");
  const path = require("path");
  
- const server = http.createServer((req, res) => {
+ const server1 = http.createServer((req, res) => {
      const uptimeMinutes = Math.floor(os.uptime() / 60);
      const serverFileName = path.basename(__filename);
  
@@ -21,7 +21,7 @@
      res.end();
  });
  
- server.listen(5000, "localhost", () => {
+ server1.listen(5000, "localhost", () => {
      console.log("Server is running at http://localhost:5000");
  });
 
@@ -29,20 +29,20 @@
 Необхідно створити власний модуль personalmodule.js, який містить функцію, що приймає ім’я системного юзера і працює з поточним часом та на основі пори доби виводить повідомлення із привітанням юзера. Щоб експортувати змінні чи функції модуля на зовні можна використати об’єкт module.exports. 
 Створіть Node.js сервер, який з використанням функціоналу розробленого модуля повертатиме наступну сторінку:*/
 
-const http = require('http');
-const os = require('os');
-const greetUser = require('./personalmodule');
+const http = require("http");
+const os = require("os");
+const { greetUser } = require("./personalmodule");
 
-const server = http.createServer((req, res) => {
-    const userName = os.userInfo().username;
-    const greetingMessage = greetUser(userName);
+const server2 = http.createServer((req, res) => {
+  const username = os.userInfo().username;
+  const greeting = greetUser(username);
 
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.write(`<h1>${greetingMessage}</h1>`);
-    res.end();
+  res.writeHead(200, { "Content-Type": "text/html" });
+  res.write(`<h1>${greeting}</h1>`);
+  res.end();
 });
 
-server.listen(5000, () => {
-    console.log('Server is running at http://localhost:5000');
+const port = 3000;
+server2.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
- 
